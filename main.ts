@@ -73,7 +73,7 @@ function bot_Servo_Motors_Basic_Fn (network_ReceivedString_FromControllerJoystic
             quest_Note_1.quest_Show_String_For_Note_Small_Func(
             "user is holding stick forward - accelerate and hold"
             )
-            if (normal_accel_speed < max_normal_speed / 2) {
+            if (normal_accel_speed < max_normal_speed / 1) {
                 quest_Note_1.quest_Show_String_For_Note_Small_Func(
                 "Still accelerating - increment speed"
                 )
@@ -117,7 +117,7 @@ function bot_Servo_Motors_Basic_Fn (network_ReceivedString_FromControllerJoystic
             quest_Note_1.quest_Show_String_For_Note_Small_Func(
             "user is holding stick backward - accelerate and hold"
             )
-            if (normal_accel_speed > (0 - max_normal_speed) / 2) {
+            if (normal_accel_speed > (0 - max_normal_speed) / 1) {
                 quest_Note_1.quest_Show_String_For_Note_Small_Func(
                 "Still accelerating - increment speed"
                 )
@@ -152,8 +152,8 @@ function bot_Servo_Motors_Basic_Fn (network_ReceivedString_FromControllerJoystic
         )
         quest_Motors.quest_Set_PowerMotorsViaBlueRedBlackPins_Func(
         quest_PortGroup_BlueRedBlack_PortIds_Enum.S1_MotorLeft__S0_MotorRight,
-        60,
-        -60
+        40,
+        -20
         )
     } else if (network_ReceivedString_FromControllerJoystick_Str_ParamIn == "right") {
         last_joystick_command = 0
@@ -169,8 +169,8 @@ function bot_Servo_Motors_Basic_Fn (network_ReceivedString_FromControllerJoystic
         )
         quest_Motors.quest_Set_PowerMotorsViaBlueRedBlackPins_Func(
         quest_PortGroup_BlueRedBlack_PortIds_Enum.S1_MotorLeft__S0_MotorRight,
-        -60,
-        60
+        -20,
+        40
         )
     } else if (network_ReceivedString_FromControllerJoystick_Str_ParamIn == "stop") {
         last_joystick_command = 0
