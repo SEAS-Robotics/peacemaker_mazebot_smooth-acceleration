@@ -813,13 +813,13 @@ max_turbo_speed = 99
 quest_Note_4.quest_Show_String_For_Note_Small_Func(
 "Per-bot Power Calibration for Left/Right drift:"
 )
-let r_normal_fwd_cal = 1
+let r_normal_fwd_cal = 0.85
 let l_normal_fwd_cal = 1
-let r_boost_fwd_cal = 1
+let r_boost_fwd_cal = 0.9
 let l_boost_fwd_cal = 1
-let r_normal_rev_cal = 1
+let r_normal_rev_cal = 0.95
 let l_normal_rev_cal = 1
-let r_boost_rev_cal = 1
+let r_boost_rev_cal = 0.95
 let l_boost_rev_cal = 1
 quest_Note_1.quest_Show_String_For_Note_Big_Func(
 "Below, Setup Code for Student:"
