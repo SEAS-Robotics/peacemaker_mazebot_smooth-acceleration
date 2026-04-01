@@ -813,6 +813,14 @@ max_turbo_speed = 99
 quest_Note_4.quest_Show_String_For_Note_Small_Func(
 "Per-bot Power Calibration for Left/Right drift:"
 )
+let r_normal_fwd_cal = 1
+let l_normal_fwd_cal = 1
+let r_boost_fwd_cal = 1
+let l_boost_fwd_cal = 1
+let r_normal_rev_cal = 1
+let l_normal_rev_cal = 1
+let r_boost_rev_cal = 1
+let l_boost_rev_cal = 1
 quest_Note_1.quest_Show_String_For_Note_Big_Func(
 "Below, Setup Code for Student:"
 )
@@ -1003,6 +1011,14 @@ basic.forever(function () {
         "|  Controller-Joystick (Web-Client) -->"
         )
     }
+})
+basic.forever(function () {
+    quest_Note_1.quest_Show_String_For_Note_Small_Func(
+    "Ver 2.11.0: 25-0528-1900"
+    )
+    quest_Note_1.quest_Show_String_For_Note_Small_Func(
+    "©️ 2025 Quest Institute. All rights reserved."
+    )
 })
 basic.forever(function () {
     quest_Note_6.quest_Show_String_For_Note_Big_Func(
@@ -1227,14 +1243,6 @@ basic.forever(function () {
         "Level 2.1: Variables_n_Constants_Yes"
         )
     }
-})
-basic.forever(function () {
-    quest_Note_1.quest_Show_String_For_Note_Small_Func(
-    "Ver 2.11.0: 25-0528-1900"
-    )
-    quest_Note_1.quest_Show_String_For_Note_Small_Func(
-    "©️ 2025 Quest Institute. All rights reserved."
-    )
 })
 basic.forever(function () {
     if (true) {
