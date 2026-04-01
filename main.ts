@@ -809,7 +809,10 @@ normal_start_speed = 20
 accel_rate = 1
 max_normal_speed = 60
 // This value will determine the maximum speed to which the bot will accelerate before topping out. Valid range is 0 to 100.
-max_turbo_speed = 98
+max_turbo_speed = 99
+quest_Note_4.quest_Show_String_For_Note_Small_Func(
+""
+)
 quest_Note_1.quest_Show_String_For_Note_Big_Func(
 "Below, Setup Code for Student:"
 )
@@ -1190,14 +1193,6 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    quest_Note_1.quest_Show_String_For_Note_Small_Func(
-    "Ver 2.11.0: 25-0528-1900"
-    )
-    quest_Note_1.quest_Show_String_For_Note_Small_Func(
-    "©️ 2025 Quest Institute. All rights reserved."
-    )
-})
-basic.forever(function () {
     if (true) {
         quest_Note_3.quest_Show_String_For_Note_Big_Func(
         "Send Network Message to 'B'ot:: Controller_Joystick: Buttons"
@@ -1232,6 +1227,14 @@ basic.forever(function () {
         "Level 2.1: Variables_n_Constants_Yes"
         )
     }
+})
+basic.forever(function () {
+    quest_Note_1.quest_Show_String_For_Note_Small_Func(
+    "Ver 2.11.0: 25-0528-1900"
+    )
+    quest_Note_1.quest_Show_String_For_Note_Small_Func(
+    "©️ 2025 Quest Institute. All rights reserved."
+    )
 })
 basic.forever(function () {
     if (true) {
