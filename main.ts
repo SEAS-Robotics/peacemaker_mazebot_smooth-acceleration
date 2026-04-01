@@ -182,8 +182,8 @@ function bot_Servo_Motors_Basic_Fn (network_ReceivedString_FromControllerJoystic
         )
         quest_Motors.quest_Set_PowerMotorsViaBlueRedBlackPins_Func(
         quest_PortGroup_BlueRedBlack_PortIds_Enum.S1_MotorLeft__S0_MotorRight,
-        normal_accel_speed,
-        15
+        40,
+        -40
         )
     } else if (network_ReceivedString_FromControllerJoystick_Str_ParamIn == "right") {
         last_joystick_command = 0
@@ -199,8 +199,8 @@ function bot_Servo_Motors_Basic_Fn (network_ReceivedString_FromControllerJoystic
         )
         quest_Motors.quest_Set_PowerMotorsViaBlueRedBlackPins_Func(
         quest_PortGroup_BlueRedBlack_PortIds_Enum.S1_MotorLeft__S0_MotorRight,
-        15,
-        normal_accel_speed
+        -40,
+        40
         )
     } else if (network_ReceivedString_FromControllerJoystick_Str_ParamIn == "stop") {
         last_joystick_command = 0
@@ -1294,6 +1294,7 @@ basic.forever(function () {
         "Network Message Max_Character_Length: 19"
         )
         if (_system_Hw_DeviceType__Now__Id_Int == _system_Hw_DeviceType__Controller_Joystick__ID_INT && (_system_Sw_ModeState__Now__Id_Int == _system_Sw_ModeState__Run__AndShow_01_DeviceType__ID_INT || _system_Sw_ModeState__Now__Id_Int == _system_Sw_ModeState__Run__AndShow_02_GroupChannelNum__ID_INT)) {
+            // joystick button D handler
             if (joystickbit.getButton(joystickbit.JoystickBitPin.P13)) {
                 images.createImage(`
                     # . . . .
@@ -1308,6 +1309,7 @@ basic.forever(function () {
                 )
                 controller__Polar_OriginAtCenter__MagnitudePixel__PreviousCycles_IdleCount__Int = 0
             } else if (joystickbit.getButton(joystickbit.JoystickBitPin.P12)) {
+                // joystick button C handler
                 images.createImage(`
                     . . . . .
                     . . . . .
