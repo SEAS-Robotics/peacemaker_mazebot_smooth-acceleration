@@ -150,12 +150,24 @@ function bot_Servo_Motors_Basic_Fn (network_ReceivedString_FromControllerJoystic
                 }
             }
         }
-        // //jwc o roboQuest.powerMotorsViaBlueRedBlackPins(PortGroup_BlueRedBlack__PortIds__Enum.S1_MotorLeft__S0_MotorRight, motor_Power_ZERO_INT, motor_Power_ZERO_INT)
-        quest_Motors.quest_Set_PowerMotorsViaBlueRedBlackPins_Func(
-        quest_PortGroup_BlueRedBlack_PortIds_Enum.S1_MotorLeft__S0_MotorRight,
-        normal_accel_speed,
-        normal_accel_speed
-        )
+        if (turbo_mode == 1) {
+            quest_Note_1.quest_Show_String_For_Note_Small_Func(
+            "Apply left/right power calibrations and set motor power"
+            )
+            // //jwc o roboQuest.powerMotorsViaBlueRedBlackPins(PortGroup_BlueRedBlack__PortIds__Enum.S1_MotorLeft__S0_MotorRight, motor_Power_ZERO_INT, motor_Power_ZERO_INT)
+            quest_Motors.quest_Set_PowerMotorsViaBlueRedBlackPins_Func(
+            quest_PortGroup_BlueRedBlack_PortIds_Enum.S1_MotorLeft__S0_MotorRight,
+            normal_accel_speed * l_boost_rev_cal,
+            normal_accel_speed * r_boost_rev_cal
+            )
+        } else {
+            // //jwc o roboQuest.powerMotorsViaBlueRedBlackPins(PortGroup_BlueRedBlack__PortIds__Enum.S1_MotorLeft__S0_MotorRight, motor_Power_ZERO_INT, motor_Power_ZERO_INT)
+            quest_Motors.quest_Set_PowerMotorsViaBlueRedBlackPins_Func(
+            quest_PortGroup_BlueRedBlack_PortIds_Enum.S1_MotorLeft__S0_MotorRight,
+            normal_accel_speed * l_normal_rev_cal,
+            normal_accel_speed * r_normal_rev_cal
+            )
+        }
     } else if (network_ReceivedString_FromControllerJoystick_Str_ParamIn == "left") {
         last_joystick_command = 0
         images.createImage(`
@@ -170,8 +182,8 @@ function bot_Servo_Motors_Basic_Fn (network_ReceivedString_FromControllerJoystic
         )
         quest_Motors.quest_Set_PowerMotorsViaBlueRedBlackPins_Func(
         quest_PortGroup_BlueRedBlack_PortIds_Enum.S1_MotorLeft__S0_MotorRight,
-        40,
-        -20
+        normal_accel_speed,
+        15
         )
     } else if (network_ReceivedString_FromControllerJoystick_Str_ParamIn == "right") {
         last_joystick_command = 0
@@ -187,8 +199,8 @@ function bot_Servo_Motors_Basic_Fn (network_ReceivedString_FromControllerJoystic
         )
         quest_Motors.quest_Set_PowerMotorsViaBlueRedBlackPins_Func(
         quest_PortGroup_BlueRedBlack_PortIds_Enum.S1_MotorLeft__S0_MotorRight,
-        -20,
-        40
+        15,
+        normal_accel_speed
         )
     } else if (network_ReceivedString_FromControllerJoystick_Str_ParamIn == "stop") {
         last_joystick_command = 0
@@ -796,6 +808,10 @@ let screenBrightness_Heartbeat_Count_Int = 0
 let screen_XY_Brightness_Old_Num = 0
 let screen_Y_Old_Num = 0
 let screen_X_Old_Num = 0
+let l_boost_rev_cal = 0
+let r_boost_rev_cal = 0
+let l_normal_rev_cal = 0
+let r_normal_rev_cal = 0
 let l_boost_fwd_cal = 0
 let r_boost_fwd_cal = 0
 let l_normal_fwd_cal = 0
@@ -839,10 +855,10 @@ r_normal_fwd_cal = 0.85
 l_normal_fwd_cal = 1
 r_boost_fwd_cal = 0.9
 l_boost_fwd_cal = 1
-let r_normal_rev_cal = 0.95
-let l_normal_rev_cal = 1
-let r_boost_rev_cal = 0.95
-let l_boost_rev_cal = 1
+r_normal_rev_cal = 0.95
+l_normal_rev_cal = 1
+r_boost_rev_cal = 0.95
+l_boost_rev_cal = 1
 quest_Note_1.quest_Show_String_For_Note_Big_Func(
 "Below, Setup Code for Student:"
 )
